@@ -1,2 +1,0 @@
-# Load Zephyr board defconfig descriptions.
-osource "/home/lakshminarasimhans/zephyrtraining/zephyr/boards/st/nucleo_h745zi_q/Kconfig.defconfig"
