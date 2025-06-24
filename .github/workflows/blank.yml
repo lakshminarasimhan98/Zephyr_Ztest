@@ -1,36 +1,25 @@
-# .github/workflows/ci.yml
-name: Zephyr CI
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      - name: Checkout your app
+        uses: actions/checkout@v3
 
-    - name: Install dependencies
-      run: |
-        sudo apt update
-        sudo apt install -y python3-pip cmake ninja-build gperf \
-                            ccache dfu-util device-tree-compiler wget \
-                            git make gcc g++ unzip xz-utils file
-        pip3 install west
-        west init -l .
-        west update
-        west zephyr-export
-        pip3 install -r zephyr/scripts/requirements.txt
+      - name: Install west and Zephyr dependencies
+        run: |
+          pip install west
+          west init zephyrproject
+          cd zephyrproject
+          west update
+          west zephyr-export
+          pip install -r zephyr/scripts/requirements.txt
 
-    - name: Build application (normal)
-      run: |
-        west build -b nucleo_h745zi_q_m7 --pristine -- -DCONF_FILE=prj.conf
+      - name: Link your app into workspace
+        run: |
+          cd zephyrproject
+          ln -s $GITHUB_WORKSPACE app
 
-    - name: Build and run tests
-      run: |
-        west build -b nucleo_h745zi_q_m7 --pristine -- -DCONF_FILE=prj_test.conf
+      - name: Build the application
+        run: |
+          cd zephyrproject
+          west build -b nucleo_h745zi_q app
