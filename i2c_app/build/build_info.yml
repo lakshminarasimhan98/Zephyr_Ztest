@@ -1,0 +1,58 @@
+cmake:
+  application:
+    configuration-dir: '/home/lakshminarasimhans/zephyrtraining/i2c_app'
+    source-dir: '/home/lakshminarasimhans/zephyrtraining/i2c_app'
+  board:
+    name: 'nucleo_h745zi_q'
+    path:
+     - '/home/lakshminarasimhans/zephyrtraining/zephyr/boards/st/nucleo_h745zi_q'
+    qualifiers: 'stm32h745xx/m7'
+    revision: ''
+  devicetree:
+    bindings-dirs:
+     - '/home/lakshminarasimhans/zephyrtraining/zephyr/dts/bindings'
+    files:
+     - '/home/lakshminarasimhans/zephyrtraining/zephyr/boards/st/nucleo_h745zi_q/nucleo_h745zi_q_stm32h745xx_m7.dts'
+    include-dirs:
+     - '/home/lakshminarasimhans/zephyrtraining/modules/hal/ambiq/dts'
+     - '/home/lakshminarasimhans/zephyrtraining/modules/hal/atmel/include'
+     - '/home/lakshminarasimhans/zephyrtraining/modules/hal/bouffalolab/include'
+     - '/home/lakshminarasimhans/zephyrtraining/modules/hal/bouffalolab/include/zephyr'
+     - '/home/lakshminarasimhans/zephyrtraining/modules/hal/gigadevice/include'
+     - '/home/lakshminarasimhans/zephyrtraining/modules/hal/microchip/include'
+     - '/home/lakshminarasimhans/zephyrtraining/modules/hal/microchip/dts'
+     - '/home/lakshminarasimhans/zephyrtraining/modules/hal/nuvoton/dts'
+     - '/home/lakshminarasimhans/zephyrtraining/modules/hal/nxp/dts'
+     - '/home/lakshminarasimhans/zephyrtraining/modules/hal/stm32/dts'
+     - '/home/lakshminarasimhans/zephyrtraining/modules/hal/ti/dts'
+     - '/home/lakshminarasimhans/zephyrtraining/zephyr/include'
+     - '/home/lakshminarasimhans/zephyrtraining/zephyr/include/zephyr'
+     - '/home/lakshminarasimhans/zephyrtraining/zephyr/dts/common'
+     - '/home/lakshminarasimhans/zephyrtraining/zephyr/dts/vendor'
+     - '/home/lakshminarasimhans/zephyrtraining/zephyr/dts/rx'
+     - '/home/lakshminarasimhans/zephyrtraining/zephyr/dts/x86'
+     - '/home/lakshminarasimhans/zephyrtraining/zephyr/dts/xtensa'
+     - '/home/lakshminarasimhans/zephyrtraining/zephyr/dts/sparc'
+     - '/home/lakshminarasimhans/zephyrtraining/zephyr/dts/riscv'
+     - '/home/lakshminarasimhans/zephyrtraining/zephyr/dts/posix'
+     - '/home/lakshminarasimhans/zephyrtraining/zephyr/dts/arm64'
+     - '/home/lakshminarasimhans/zephyrtraining/zephyr/dts/arm'
+     - '/home/lakshminarasimhans/zephyrtraining/zephyr/dts/arc'
+     - '/home/lakshminarasimhans/zephyrtraining/zephyr/dts'
+  kconfig:
+    files:
+     - '/home/lakshminarasimhans/zephyrtraining/zephyr/boards/st/nucleo_h745zi_q/nucleo_h745zi_q_stm32h745xx_m7_defconfig'
+     - '/home/lakshminarasimhans/zephyrtraining/i2c_app/prj_test.conf'
+    user-files:
+     - 'prj_test.conf'
+  toolchain:
+    name: 'zephyr'
+    path: '/home/lakshminarasimhans/zephyr-sdk-0.17.1'
+  zephyr:
+    version: '4.1.99'
+    zephyr-base: '/home/lakshminarasimhans/zephyrtraining/zephyr'
+version: '0.1.0'
+west:
+  command: '/home/lakshminarasimhans/.local/bin/west build -b nucleo_h745zi_q/stm32h745xx/m7 --pristine=always ./ -- -DCONF_FILE=prj_test.conf'
+  topdir: '/home/lakshminarasimhans/zephyrtraining'
+  version: '1.4.0'

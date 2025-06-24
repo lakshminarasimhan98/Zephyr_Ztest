@@ -1,0 +1,5 @@
+west:
+  command: /home/lakshminarasimhans/.local/bin/west build -b nucleo_h745zi_q/stm32h745xx/m7
+    --pristine=always ./ -- -DCONF_FILE=prj_test.conf
+  topdir: /home/lakshminarasimhans/zephyrtraining
+  version: 1.4.0

@@ -1,0 +1,1 @@
+"mcuboot":"/home/lakshminarasimhans/zephyrtraining/bootloader/mcuboot":"/home/lakshminarasimhans/zephyrtraining/bootloader/mcuboot/boot/zephyr/sysbuild"
